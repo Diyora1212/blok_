@@ -29,7 +29,7 @@
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="post_form.html">New Post</a>
+                <a class="nav-item nav-link" href="{% url 'Diyora:post-form-page' %}">New Post</a>
                 <a class="nav-item nav-link" href="{% url 'Diyora:user' %}">Profile</a>
                 <a class="nav-item nav-link" href="#">Logout</a>
                 <a class="nav-item nav-link" href="{% url 'Diyora:login-page' %}">Login</a>
@@ -43,7 +43,7 @@
       <div class="row">
         <div class="col-md-8">
               <div class="alert alert-{{ message.tags }}">
-                <h6>Django messages might be shown here</h3>
+                <h3>Django messages might be shown here</h3>
               </div>
   <article class="media content-section">
     <img class="rounded-circle article-img" src="../../static/blog/img/corey.jpeg">

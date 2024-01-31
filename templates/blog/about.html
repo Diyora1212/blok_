@@ -1,11 +1,4 @@
 {% load static %}
-{##}
-{#<link rel="stylesheet" href="{% static 'blog/css/main.css' %}">#}
-{#<img src="{% static 'blog/img/andrew.jpeg' %}" alt="profile photo">#}
-{#<img src="{% static 'blog/img/corey.jpeg' %}" alt="profile photo">#}
-{#<img src="{% static 'blog/img/gibbs.jpeg' %}" alt="profile photo">#}
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +24,7 @@
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="post_form.html">New Post</a>
+                <a class="nav-item nav-link" href="{% url 'Diyora:post-form-page' %}">New Post</a>
                 <a class="nav-item nav-link" href="{% url 'Diyora:user' %}">Profile</a>
                 <a class="nav-item nav-link" href="#">Logout</a>
                 <a class="nav-item nav-link" href="{% url 'Diyora:login-page' %}">Login</a>

@@ -30,7 +30,7 @@
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="post_form.html">New Post</a>
+                <a class="nav-item nav-link" href="{% url 'Diyora:post-form-page' %}">New Post</a>
                 <a class="nav-item nav-link" href="{% url 'Diyora:user' %}">Profile</a>
                 <a class="nav-item nav-link" href="#">Logout</a>
                 <a class="nav-item nav-link" href="{% url 'Diyora:login-page' %}">Login</a>
@@ -44,7 +44,7 @@
       <div class="row">
         <div class="col-md-8">
               <div class="alert alert-{{ message.tags }}">
-                <h6>Django messages might be shown here</h3>
+                <h3>Django messages might be shown here</h3>
               </div>
             <h1 class="mb-3">Posts by Andrew Ng </h1>
          
@@ -55,7 +55,7 @@
                   <a class="mr-2" href="{%  url 'Diyora:user' %}">Andrew Ng</a>
                   <small class="text-muted">Aug 21, 2019</small>
                 </div>
-                <h4><a class="article-title" href="{% url 'Diyora:post-detail-page' %}">AI in Latin America: Announcing our first international office in Colombia</a></h2>
+                <h2><a class="article-title" href="{% if post.id %}{% url 'Diyora:post-detail-page' post.id %}{% endif %}">AI in Latin America: Announcing our first international office in Colombia</a></h2>
                 <p class="article-content">I am excited to announce the opening of our office in Medellín, Colombia. 
                   The office will serve as the Latin American headquarters for three of the companies in our AI ecosystem</p>
               </div>
@@ -67,7 +67,7 @@
                   <a class="mr-2" href="user_posts.html">Andrew Ng</a>
                   <small class="text-muted">Aug 21, 2019</small>
                 </div>
-                <h4><a class="article-title" href="{% url 'Diyora:post-detail-page' %}">Introducing the AI Transformation Playbook</a></h2>
+                <h2><a class="article-title" href="{% if post.id %}{% url 'Diyora:post-detail-page' post.id %}{% endif %}">Introducing the AI Transformation Playbook</a></h2>
                 <p class="article-content">Dear friends,
                   I’m excited to share with you the AI Transformation Playbook. Drawn from my experience leading Google Brain, 
                   Baidu’s AI Group, and Landing AI, this Playbook provides a roadmap for your company to transform into a great AI company.</p>

@@ -1,1 +1,12 @@
-{% load static %}
+{% extends 'blog/base.html' %}
+{% load static %}}
+{% block title %} User Register Page{% endblock %}
+{% block body %}
+    <h1>Registration Page</h1>
+    <h3>Already have an <a href="{% url 'Diyora:login-page' %}">account </a></h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit"> Register</button>
+    </form>
+{% endblock %}

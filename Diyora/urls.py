@@ -1,14 +1,14 @@
 from django.urls import path
-from .views import home_view, about_view, login_view, post_detail_view, post_form_view, post_confirm_delete_view, register_view, user_posts_view
-
+from .views import  HomeView, AboutView, PostCreateView, UserPostsView, PostDetailView, PostDeleteView, UserRegisterView, UserLoginView, UserLogoutView
 app_name = 'Diyora'
 urlpatterns = [
-    path('', home_view, name='home-page'),
-    path('about/', about_view, name='about-page'),
-    path('login/', login_view, name='login-page'),
-    path('posts/', post_detail_view, name='post-detail-page'),
-    path('posts/<int:pk>/', post_form_view, name='post-form-page'),
-    path('posts/confirm/delete/', post_confirm_delete_view, name='post-confirm'),
-    path('register/', register_view, name='register-page'),
-    path('user_posts/', user_posts_view, name='user'),
+    path('', HomeView.as_view(), name='home-page'),
+    path('about/', AboutView.as_view(), name='about-page'),
+    path('login/', UserLoginView.as_view(), name='login-page'),
+    path('posts/', PostDetailView.as_view(), name='post-detail-page'),
+    path('posts/new/', PostCreateView.as_view(), name='post-form-page'),
+    path('posts/<int:pk>/confirm/delete/', PostDeleteView.as_view(), name='post-confirm'),
+    path('register/', UserRegisterView.as_view(), name='register-page'),
+    path('posts/', UserPostsView.as_view(), name='user'),
+    path('logout/', UserLogoutView.as_view(), name='logout-page')
 ]
