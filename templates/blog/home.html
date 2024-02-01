@@ -51,7 +51,7 @@
                     <a class="mr-2" href="{% url 'Diyora:user' %}">Jordan Gibbs</a>
                     <small class="text-muted">Feb 19, 2023</small>
                   </div>
-                  <h5><a class="article-title" href="{% url 'Diyora:post-detail-page' %}">I have been watching a decade.</a></h2>
+                  <h5><a class="article-title" href="{% if post.id %}{% url 'Diyora:post-detail-page' post.id%}{% endif %}">I have been watching a decade.</a></h2>
                 </div>
               </article>
               <article class="media content-section">
@@ -61,7 +61,7 @@
                     <a class="mr-2" href="{% url 'Diyora:user' %}">Jordan Gibbs </a>
                     <small class="text-muted">Feb 19, 2023</small>
                   </div>
-                  <h5><a class="article-title" href="{% url 'Diyora:post-detail-page' %}">Do Gimmicky ChatGPT Prompts Actually Work?</a></h2>
+                  <h5><a class="article-title" href="{% if post.id %}{% url 'Diyora:post-detail-page' post.id%}{% endif %}">Do Gimmicky ChatGPT Prompts Actually Work?</a></h2>
                 </div>
               </article>
         </div>

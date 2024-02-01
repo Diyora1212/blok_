@@ -9,6 +9,17 @@ class PostCreateForm(forms.ModelForm):
         model = Post
         fields = ['title', 'content', 'date_posted', 'author']
 
+class PostUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'content', 'date_posted', 'author']
+
+class PostDeleteForm(forms.ModelForm):
+    class Meta:
+        fields = ['title', 'content', 'date_posted', 'author']
+        model = Post
+        exclude = ['author']
+
 
 class UserRegisterModelForm(forms.ModelForm):
     password1 = forms.CharField(max_length=128)

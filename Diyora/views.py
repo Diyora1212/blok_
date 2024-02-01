@@ -7,7 +7,7 @@ from django.views.generic import CreateView, ListView, DetailView, UpdateView, D
 from django.http import HttpResponse
 from django.views import View
 from .models import Post
-from .forms import UserRegisterModelForm, PostCreateForm, UserLoginForm
+from .forms import UserRegisterModelForm, PostCreateForm, UserLoginForm, PostUpdateForm, PostDeleteForm
 
 
 class HomeView(View):
@@ -25,10 +25,15 @@ class PostCreateView(CreateView):
     template_name = 'blog/post_form.html'
     form = PostCreateForm
     fields = ['title', 'content', 'author', 'date_posted']
-    success_url = reverse_lazy('post-list')
+    success_url = reverse_lazy('Diyora:user')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 
 class UserPostsView(ListView):
+    form = PostUpdateForm, PostDeleteForm
     model = Post
     template_name = 'blog/user_posts.html'
     context_object_name = 'posts'
@@ -44,7 +49,7 @@ class PostDetailView(DetailView):
 class PostDeleteView(SuccessMessageMixin, DeleteView):
     model = Post
     template_name = 'blog/post_confirm_delete.html'
-    success_url = reverse_lazy('app_name:post-list')
+    success_url = reverse_lazy('Diyora:user')
     success_message = 'Post was deleted successfully'
 
 
